@@ -33,6 +33,9 @@ namespace todolist
             this.PriorityText = new System.Windows.Forms.Label();
             this.button_Done = new System.Windows.Forms.Button();
             this.button_del = new System.Windows.Forms.Button();
+            this.labelDescription = new System.Windows.Forms.Label();
+            this.labelDay = new System.Windows.Forms.Label();
+            this.labelProjectName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // taskText
@@ -40,6 +43,7 @@ namespace todolist
             this.taskText.AutoSize = true;
             this.taskText.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.taskText.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.taskText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.taskText.Location = new System.Drawing.Point(44, 14);
             this.taskText.Name = "taskText";
             this.taskText.Size = new System.Drawing.Size(35, 20);
@@ -49,6 +53,7 @@ namespace todolist
             // PriorityText
             // 
             this.PriorityText.AutoSize = true;
+            this.PriorityText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.PriorityText.Location = new System.Drawing.Point(209, 19);
             this.PriorityText.Name = "PriorityText";
             this.PriorityText.Size = new System.Drawing.Size(38, 13);
@@ -73,17 +78,53 @@ namespace todolist
             this.button_del.UseVisualStyleBackColor = true;
             this.button_del.Click += new System.EventHandler(this.button_del_Click);
             // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.labelDescription.Location = new System.Drawing.Point(5, 49);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelDescription.TabIndex = 4;
+            this.labelDescription.Text = "Deskription";
+            // 
+            // labelDay
+            // 
+            this.labelDay.AutoSize = true;
+            this.labelDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.labelDay.Location = new System.Drawing.Point(5, 81);
+            this.labelDay.Name = "labelDay";
+            this.labelDay.Size = new System.Drawing.Size(30, 13);
+            this.labelDay.TabIndex = 5;
+            this.labelDay.Text = "Date";
+            // 
+            // labelProjectName
+            // 
+            this.labelProjectName.AutoSize = true;
+            this.labelProjectName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.labelProjectName.Location = new System.Drawing.Point(209, 81);
+            this.labelProjectName.Name = "labelProjectName";
+            this.labelProjectName.Size = new System.Drawing.Size(40, 13);
+            this.labelProjectName.TabIndex = 6;
+            this.labelProjectName.Text = "Project";
+            // 
             // TaskControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.Controls.Add(this.labelProjectName);
+            this.Controls.Add(this.labelDay);
+            this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.button_del);
             this.Controls.Add(this.button_Done);
             this.Controls.Add(this.PriorityText);
             this.Controls.Add(this.taskText);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "TaskControl";
-            this.Size = new System.Drawing.Size(409, 43);
+            this.Size = new System.Drawing.Size(409, 104);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TaskControl_MouseDoubleClick);
             this.MouseLeave += new System.EventHandler(this.TaskControl_MouseLeave);
             this.MouseHover += new System.EventHandler(this.TaskControl_MouseHover);
             this.ResumeLayout(false);
@@ -97,5 +138,8 @@ namespace todolist
         private System.Windows.Forms.Label PriorityText;
         private System.Windows.Forms.Button button_Done;
         private System.Windows.Forms.Button button_del;
+        private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.Label labelDay;
+        private System.Windows.Forms.Label labelProjectName;
     }
 }
