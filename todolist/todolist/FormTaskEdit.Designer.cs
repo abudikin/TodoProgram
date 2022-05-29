@@ -1,7 +1,7 @@
 ﻿
 namespace todolist
 {
-    partial class FormTaskShow
+    partial class FormTaskEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -62,11 +62,6 @@ namespace todolist
             // comboBoxEditPriority
             // 
             this.comboBoxEditPriority.FormattingEnabled = true;
-            this.comboBoxEditPriority.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3"});
             this.comboBoxEditPriority.Location = new System.Drawing.Point(365, 22);
             this.comboBoxEditPriority.Name = "comboBoxEditPriority";
             this.comboBoxEditPriority.Size = new System.Drawing.Size(121, 21);
@@ -89,10 +84,11 @@ namespace todolist
             this.buttonEditTask.UseVisualStyleBackColor = true;
             this.buttonEditTask.Click += new System.EventHandler(this.buttonEditTask_Click);
             // 
-            // FormTaskShow
+            // FormTaskEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(498, 131);
             this.Controls.Add(this.buttonEditTask);
             this.Controls.Add(this.textBoxDesckiptionEdit);
@@ -100,7 +96,7 @@ namespace todolist
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboBoxEditProject);
             this.Controls.Add(this.textBoxTaskEdit);
-            this.Name = "FormTaskShow";
+            this.Name = "FormTaskEdit";
             this.Text = "FormTaskShow";
             this.Load += new System.EventHandler(this.FormTaskShow_Load);
             this.ResumeLayout(false);

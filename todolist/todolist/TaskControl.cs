@@ -14,6 +14,8 @@ namespace todolist
     public partial class TaskControl : UserControl
     {
         int index;
+        int Priority, Project;
+        string task, desc, Date;
        
         public TaskControl(int id, string text, string description, string date, int priority, int project)
         {
@@ -22,6 +24,11 @@ namespace todolist
             labelDescription.Text = description;
             labelDay.Text = date;
             index = id;
+            task = text;
+            desc = description;
+            Date = date;
+            Priority = priority;
+            Project = project;
             MySqlConnection mySql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=todo");
             using (mySql)
             {
@@ -47,7 +54,20 @@ namespace todolist
 
                     while (reader.Read())
                     {
-                        PriorityText.Text = reader[1].ToString();
+                        Priority = Convert.ToInt32(reader[1]);
+                        if (Priority==1)
+                        {
+                            button_Done.BackColor = Color.Red;
+                        }
+                       else if (Priority == 2)
+                        {
+                            button_Done.BackColor = Color.Orange;
+                        }
+                       else if (Priority == 3)
+                        {
+                            button_Done.BackColor = Color.Yellow;
+                        }
+                       
                     }
                     reader.Close();
                 }
@@ -82,8 +102,22 @@ namespace todolist
 
         private void TaskControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            /*FormTaskShow formTask = new FormTaskShow(index,pr);
-            formTask.Show();*/
+            FormTaskEdit formTask = new FormTaskEdit(index,task,desc,Date,Project,Priority);
+            formTask.Show();
+        }
+
+        private void button_Done_Click(object sender, EventArgs e)
+        {
+            int status = 2;
+            MySqlConnection mySql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=todo");
+            using (mySql)
+            {
+                mySql.Open();
+                MySqlCommand command = new MySqlCommand("update tasks set status_id='" + status + "'", mySql);
+                command.ExecuteNonQuery();
+               
+                mySql.Close();
+            }
         }
     }
 }

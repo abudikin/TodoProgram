@@ -11,15 +11,20 @@ using MySql.Data.MySqlClient;
 
 namespace todolist
 {
-    public partial class FormTaskShow : Form
+    public partial class FormTaskEdit : Form
     {
         int index;
-        int pr;
-        public FormTaskShow(int id,int p)
+        int project_id, priority_id;
+        public FormTaskEdit(int id,string task,string description,string date,int project,int priority)
         {
             InitializeComponent();
             index = id;
-            pr = p;
+            textBoxTaskEdit.Text = task;
+            textBoxDesckiptionEdit.Text = description;
+            dateTimePicker1.Value = Convert.ToDateTime(date);
+            project_id = project;
+            priority_id = priority;
+
         }
 
         private void buttonEditTask_Click(object sender, EventArgs e)
@@ -27,14 +32,13 @@ namespace todolist
             string taskEdit = textBoxTaskEdit.Text;
             string deskriptionEdit = textBoxDesckiptionEdit.Text;
             int priority = Convert.ToInt32(comboBoxEditPriority.SelectedItem);
-            int subtaskId = 1;
             int projectId = Convert.ToInt32(comboBoxEditProject.SelectedIndex);
 
             MySqlConnection mySql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=todo");
             using (mySql)
             {
                 mySql.Open();
-                MySqlCommand command = new MySqlCommand("update tasks set task_name='"+taskEdit+"',date='"+ dateTimePicker1.Value.Date.ToString("yyyy.MM.dd") + "',priority='"+ priority + "',description='"+ deskriptionEdit + "',subtask_id='"+subtaskId+"',project_id='"+projectId+"' where task_id='"+ index + "'", mySql);
+                MySqlCommand command = new MySqlCommand("update tasks set task_name='"+taskEdit+"',date='"+ dateTimePicker1.Value.Date.ToString("yyyy.MM.dd") + "',description='" + deskriptionEdit + "',priority_id='"+priority+ "',project_id='" + projectId + "' where task_id='" + index + "'", mySql);
                 command.ExecuteNonQuery();
                MessageBox.Show("Изменено");
                 mySql.Close();
@@ -43,21 +47,24 @@ namespace todolist
 
         private void FormTaskShow_Load(object sender, EventArgs e)
         {
-            comboBoxEditPriority.Text = pr.ToString();
             MySqlConnection mySql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=todo");
             using (mySql)
             {
                 mySql.Open();
-                MySqlCommand command = new MySqlCommand("select * from tasks,projects where task_id='" + index + "'", mySql);
+                DataTable patientTable = new DataTable();
+                MySqlCommand command = new MySqlCommand("select * from priority", mySql);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(patientTable);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
-
                     while (reader.Read())
                     {
-                        textBoxTaskEdit.Text = reader[1].ToString();
-                        textBoxDesckiptionEdit.Text = reader[4].ToString();
-                        dateTimePicker1.Value = Convert.ToDateTime(reader[2]);
-                    }reader.Close();
+                        comboBoxEditPriority.DataSource = patientTable;
+                        comboBoxEditPriority.DisplayMember = "priority_name";
+                        comboBoxEditPriority.ValueMember = "priority_id";
+                        comboBoxEditPriority.SelectedIndex = priority_id-1;
+
+                    }
                 }
                 mySql.Close();
             }
@@ -74,12 +81,8 @@ namespace todolist
                     {
                         comboBoxEditProject.DataSource = patientTable;
                         comboBoxEditProject.DisplayMember = "project_name";
-
                         comboBoxEditProject.ValueMember = "project_id";
-                        comboBoxEditProject.Text = reader[1].ToString(); 
-
-
-
+                        comboBoxEditProject.SelectedIndex = project_id-1; 
                     }
                 }
                 mySql.Close();

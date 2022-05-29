@@ -81,7 +81,7 @@ namespace todolist
 
         public void addtask(int id, string text, string date, string description, int priority,int project)
         {
-
+            //MessageBox.Show(today.ToShortDateString()+" "+date);
             TaskControl item = new TaskControl( id,  text,  description,  date,  priority,  project);
             if (date==today.ToString("yyyy.MM.dd"))
             {
@@ -95,11 +95,11 @@ namespace todolist
                 panelLeftTask.Controls.Add(item);
                 panelLeftLabel.Visible = true;
             }
-            else if (Convert.ToDateTime(date) > today)
+            else if (today < Convert.ToDateTime(date))
             {
                 panelFutureTask.Visible = true;
                 panelFutureTask.Controls.Add(item);
-                panelFutureLabel.Visible = true;
+                panelLabelFuture.Visible = true;
             }
             item.Dock = DockStyle.Top;
             
@@ -115,7 +115,6 @@ namespace todolist
 
         private void button_refresh_Click(object sender, EventArgs e)
         {
-            MainPanel.Controls.Clear();
             panelToDay.Controls.Clear();
             panelFutureTask.Controls.Clear();
             panelLeftTask.Controls.Clear();
@@ -125,11 +124,10 @@ namespace todolist
             panelLeftTask.Visible = false;
             panelLeftLabel.Visible = false;
             panelFutureTask.Visible = false;
-            panelFutureLabel.Visible = false;
+            panelLabelFuture.Visible = false;
             getProjects();
             if (project > 1)
             {
-                MainPanel.Controls.Clear();
                 buttonBackToMain.Visible = true;
                 string connStr = "server=localhost; port=3306; username=root; password=root; database=todo;";
                 string sql = "SELECT * from tasks where project_id = '" + project + "';";
@@ -175,7 +173,6 @@ namespace todolist
 
             if (listBox_projects.SelectedIndex != -1)
             {
-                MainPanel.Controls.Clear();
                 panelToDay.Controls.Clear();
                 panelFutureTask.Controls.Clear();
                 panelLeftTask.Controls.Clear();
@@ -184,10 +181,9 @@ namespace todolist
                 panelLeftTask.Visible = false;
                 panelLeftLabel.Visible = false;
                 panelFutureTask.Visible = false;
-                panelFutureLabel.Visible = false;
+                panelLabelFuture.Visible = false;
                 project = listBox_projects.SelectedIndex + 2;
                 int k = listBox_projects.SelectedIndex + 2;
-                MessageBox.Show(k.ToString());
                 buttonBackToMain.Visible = true;
                 string connStr = "server=localhost; port=3306; username=root; password=root; database=todo;";
                 string sql = "SELECT * from tasks where project_id = '" + k + "';";
@@ -222,7 +218,6 @@ namespace todolist
             {
                 project = 1;
                 buttonBackToMain.Visible = false;
-                MainPanel.Controls.Clear();
                 panelToDay.Controls.Clear();
                 panelFutureTask.Controls.Clear();
                 panelLeftTask.Controls.Clear();
@@ -233,7 +228,7 @@ namespace todolist
 
         public void search()
         {
-            MainPanel.Controls.Clear();
+            
             panelToDay.Controls.Clear();
             panelFutureTask.Controls.Clear();
             panelLeftTask.Controls.Clear();
@@ -242,24 +237,46 @@ namespace todolist
             panelLeftTask.Visible = false;
             panelLeftLabel.Visible = false;
             panelFutureTask.Visible = false;
-            panelFutureLabel.Visible = false;
+            panelLabelFuture.Visible = false;
             string searh_text= textBoxSearch.Text;
-            MySqlConnection mySql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=todo");
-            using (mySql)
-            {
-                mySql.Open();
-                MySqlCommand command = new MySqlCommand("select * from tasks where task_name like '%"+ searh_text + "%'", mySql);
-                using (MySqlDataReader reader = command.ExecuteReader())
+            if (project > 1){
+                MySqlConnection mySql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=todo");
+                using (mySql)
                 {
-                    while (reader.Read())
+                    mySql.Open();
+                    MySqlCommand command = new MySqlCommand("select * from tasks where task_name like '%" + searh_text + "%' and project_id='"+project+"'", mySql);
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
+                        while (reader.Read())
+                        {
 
 
-                        addtask(Convert.ToInt32(reader[0]), reader[1].ToString(), Convert.ToDateTime(reader[2]).ToString("yyyy.MM.dd"), reader[3].ToString(), Convert.ToInt32(reader[5]), Convert.ToInt32(reader[6]));
+                            addtask(Convert.ToInt32(reader[0]), reader[1].ToString(), Convert.ToDateTime(reader[2]).ToString("yyyy.MM.dd"), reader[3].ToString(), Convert.ToInt32(reader[5]), Convert.ToInt32(reader[6]));
 
+                        }
                     }
+                    mySql.Close();
                 }
-                mySql.Close();
+            }
+            else
+            {
+                MySqlConnection mySql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=todo");
+                using (mySql)
+                {
+                    mySql.Open();
+                    MySqlCommand command = new MySqlCommand("select * from tasks where task_name like '%" + searh_text + "%'", mySql);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+
+                            addtask(Convert.ToInt32(reader[0]), reader[1].ToString(), Convert.ToDateTime(reader[2]).ToString("yyyy.MM.dd"), reader[3].ToString(), Convert.ToInt32(reader[5]), Convert.ToInt32(reader[6]));
+
+                        }
+                    }
+                    mySql.Close();
+                }
             }
         }
 

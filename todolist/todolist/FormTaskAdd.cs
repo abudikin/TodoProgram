@@ -28,6 +28,9 @@ namespace todolist
             }
             else
             {
+                
+
+                string date = dateTimePicker1.Value.Date.ToString("yyyy.MM.dd");
                 string task = textBoxTask.Text;
                 string description = textBoxDescription.Text;
                 int priority = Convert.ToInt32(comboBoxPriority.SelectedIndex)+1;
@@ -35,7 +38,7 @@ namespace todolist
                 int project_id = Convert.ToInt32(comboBoxProject.SelectedIndex)+1;
                 string connStr = "server=localhost; port=3306; username=root; password=root; database=todo;";
                 string sql = "INSERT INTO tasks(task_name, date,description, status_id, priority_id,project_id) " +
-                             "VALUES('" + task + "','" + dateTimePicker1.Value.Date.ToString("yyyy.MM.dd")+ "','"+ description + "','" + status + "','" + priority + "','" + project_id + "');";
+                             "VALUES('" + task + "','" + date + "','" + description + "','" + status + "','" + priority + "','" + project_id + "');";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 MySqlDataReader reader;
@@ -55,18 +58,37 @@ namespace todolist
             using (mySql)
             {
                 mySql.Open();
-                DataTable patientTable = new DataTable();
+                DataTable projectTable = new DataTable();
                 MySqlCommand command = new MySqlCommand("select * from projects", mySql);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                adapter.Fill(patientTable);
+                adapter.Fill(projectTable);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        comboBoxProject.DataSource = patientTable;
+                        comboBoxProject.DataSource = projectTable;
                         comboBoxProject.DisplayMember = "project_name";
                         comboBoxProject.ValueMember = "project_id";
-                        comboBoxProject.Text = reader[1].ToString();
+                        comboBoxProject.SelectedIndex = index-1;
+                    }
+                }
+                mySql.Close();
+            }
+            using (mySql)
+            {
+                mySql.Open();
+                DataTable priorityTable = new DataTable();
+                MySqlCommand command = new MySqlCommand("select * from priority", mySql);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(priorityTable);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        comboBoxPriority.DataSource = priorityTable;
+                        comboBoxPriority.DisplayMember = "priority_name";
+                        comboBoxPriority.ValueMember = "priority_id";
+                        comboBoxPriority.Text = reader[1].ToString();
                     }
                 }
                 mySql.Close();

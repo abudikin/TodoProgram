@@ -41,20 +41,19 @@ namespace todolist
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.buttonFilter = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.LabelLeft = new System.Windows.Forms.Label();
+            this.panelLeftLabel = new System.Windows.Forms.Panel();
+            this.panelLeftTask = new System.Windows.Forms.Panel();
+            this.labelToday = new System.Windows.Forms.Label();
+            this.panelTodayLabel = new System.Windows.Forms.Panel();
+            this.panelToDay = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelFutureTask = new System.Windows.Forms.Panel();
-            this.panelFutureLabel = new System.Windows.Forms.Panel();
-            this.labelFutureTask = new System.Windows.Forms.Label();
-            this.panelToDay = new System.Windows.Forms.Panel();
-            this.panelTodayLabel = new System.Windows.Forms.Panel();
-            this.labelToday = new System.Windows.Forms.Label();
-            this.panelLeftTask = new System.Windows.Forms.Panel();
-            this.panelLeftLabel = new System.Windows.Forms.Panel();
-            this.LabelLeft = new System.Windows.Forms.Label();
-            this.MainPanel = new System.Windows.Forms.Panel();
-            this.buttonFilter = new System.Windows.Forms.Button();
+            this.panelLabelFuture = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -62,10 +61,9 @@ namespace todolist
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panelFutureLabel.SuspendLayout();
-            this.panelTodayLabel.SuspendLayout();
             this.panelLeftLabel.SuspendLayout();
+            this.panelTodayLabel.SuspendLayout();
+            this.panelLabelFuture.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -205,6 +203,15 @@ namespace todolist
             this.panel7.Size = new System.Drawing.Size(612, 46);
             this.panel7.TabIndex = 4;
             // 
+            // buttonFilter
+            // 
+            this.buttonFilter.Location = new System.Drawing.Point(531, 10);
+            this.buttonFilter.Name = "buttonFilter";
+            this.buttonFilter.Size = new System.Drawing.Size(75, 23);
+            this.buttonFilter.TabIndex = 5;
+            this.buttonFilter.Text = "фильтр";
+            this.buttonFilter.UseVisualStyleBackColor = true;
+            // 
             // buttonSearch
             // 
             this.buttonSearch.Location = new System.Drawing.Point(364, 10);
@@ -223,15 +230,78 @@ namespace todolist
             this.textBoxSearch.TabIndex = 0;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
+            // LabelLeft
+            // 
+            this.LabelLeft.AutoSize = true;
+            this.LabelLeft.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LabelLeft.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.LabelLeft.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelLeft.Location = new System.Drawing.Point(0, 0);
+            this.LabelLeft.Name = "LabelLeft";
+            this.LabelLeft.Size = new System.Drawing.Size(98, 20);
+            this.LabelLeft.TabIndex = 0;
+            this.LabelLeft.Text = "Просрочено";
+            // 
+            // panelLeftLabel
+            // 
+            this.panelLeftLabel.Controls.Add(this.LabelLeft);
+            this.panelLeftLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLeftLabel.Location = new System.Drawing.Point(212, 46);
+            this.panelLeftLabel.Name = "panelLeftLabel";
+            this.panelLeftLabel.Size = new System.Drawing.Size(612, 25);
+            this.panelLeftLabel.TabIndex = 11;
+            this.panelLeftLabel.Visible = false;
+            // 
+            // panelLeftTask
+            // 
+            this.panelLeftTask.AutoSize = true;
+            this.panelLeftTask.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLeftTask.Location = new System.Drawing.Point(212, 71);
+            this.panelLeftTask.Name = "panelLeftTask";
+            this.panelLeftTask.Size = new System.Drawing.Size(612, 0);
+            this.panelLeftTask.TabIndex = 12;
+            this.panelLeftTask.Visible = false;
+            // 
+            // labelToday
+            // 
+            this.labelToday.AutoSize = true;
+            this.labelToday.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelToday.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.labelToday.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelToday.Location = new System.Drawing.Point(0, 0);
+            this.labelToday.Name = "labelToday";
+            this.labelToday.Size = new System.Drawing.Size(67, 20);
+            this.labelToday.TabIndex = 0;
+            this.labelToday.Text = "Сегодня";
+            // 
+            // panelTodayLabel
+            // 
+            this.panelTodayLabel.Controls.Add(this.labelToday);
+            this.panelTodayLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTodayLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.panelTodayLabel.Location = new System.Drawing.Point(212, 71);
+            this.panelTodayLabel.Name = "panelTodayLabel";
+            this.panelTodayLabel.Size = new System.Drawing.Size(612, 25);
+            this.panelTodayLabel.TabIndex = 13;
+            this.panelTodayLabel.Visible = false;
+            // 
+            // panelToDay
+            // 
+            this.panelToDay.AutoSize = true;
+            this.panelToDay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelToDay.Location = new System.Drawing.Point(212, 96);
+            this.panelToDay.Name = "panelToDay";
+            this.panelToDay.Size = new System.Drawing.Size(612, 0);
+            this.panelToDay.TabIndex = 14;
+            this.panelToDay.Visible = false;
+            // 
             // panel8
             // 
             this.panel8.AutoSize = true;
-            this.panel8.Controls.Add(this.panelFutureTask);
-            this.panel8.Controls.Add(this.panelFutureLabel);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(212, 72);
+            this.panel8.Location = new System.Drawing.Point(212, 96);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(612, 13);
+            this.panel8.Size = new System.Drawing.Size(612, 0);
             this.panel8.TabIndex = 15;
             this.panel8.Visible = false;
             // 
@@ -239,126 +309,43 @@ namespace todolist
             // 
             this.panelFutureTask.AutoSize = true;
             this.panelFutureTask.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFutureTask.Location = new System.Drawing.Point(0, 13);
+            this.panelFutureTask.Location = new System.Drawing.Point(212, 121);
             this.panelFutureTask.Name = "panelFutureTask";
             this.panelFutureTask.Size = new System.Drawing.Size(612, 0);
-            this.panelFutureTask.TabIndex = 3;
+            this.panelFutureTask.TabIndex = 19;
             this.panelFutureTask.Visible = false;
             // 
-            // panelFutureLabel
+            // panelLabelFuture
             // 
-            this.panelFutureLabel.AutoSize = true;
-            this.panelFutureLabel.Controls.Add(this.labelFutureTask);
-            this.panelFutureLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFutureLabel.Location = new System.Drawing.Point(0, 0);
-            this.panelFutureLabel.Name = "panelFutureLabel";
-            this.panelFutureLabel.Size = new System.Drawing.Size(612, 13);
-            this.panelFutureLabel.TabIndex = 2;
-            this.panelFutureLabel.Visible = false;
+            this.panelLabelFuture.Controls.Add(this.label1);
+            this.panelLabelFuture.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLabelFuture.ForeColor = System.Drawing.SystemColors.Control;
+            this.panelLabelFuture.Location = new System.Drawing.Point(212, 96);
+            this.panelLabelFuture.Name = "panelLabelFuture";
+            this.panelLabelFuture.Size = new System.Drawing.Size(612, 25);
+            this.panelLabelFuture.TabIndex = 17;
+            this.panelLabelFuture.Visible = false;
             // 
-            // labelFutureTask
+            // label1
             // 
-            this.labelFutureTask.AutoSize = true;
-            this.labelFutureTask.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelFutureTask.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelFutureTask.Location = new System.Drawing.Point(0, 0);
-            this.labelFutureTask.Name = "labelFutureTask";
-            this.labelFutureTask.Size = new System.Drawing.Size(77, 13);
-            this.labelFutureTask.TabIndex = 0;
-            this.labelFutureTask.Text = "Предстоящие";
-            // 
-            // panelToDay
-            // 
-            this.panelToDay.AutoSize = true;
-            this.panelToDay.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelToDay.Location = new System.Drawing.Point(212, 72);
-            this.panelToDay.Name = "panelToDay";
-            this.panelToDay.Size = new System.Drawing.Size(612, 0);
-            this.panelToDay.TabIndex = 14;
-            this.panelToDay.Visible = false;
-            // 
-            // panelTodayLabel
-            // 
-            this.panelTodayLabel.AutoSize = true;
-            this.panelTodayLabel.Controls.Add(this.labelToday);
-            this.panelTodayLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTodayLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.panelTodayLabel.Location = new System.Drawing.Point(212, 59);
-            this.panelTodayLabel.Name = "panelTodayLabel";
-            this.panelTodayLabel.Size = new System.Drawing.Size(612, 13);
-            this.panelTodayLabel.TabIndex = 13;
-            this.panelTodayLabel.Visible = false;
-            // 
-            // labelToday
-            // 
-            this.labelToday.AutoSize = true;
-            this.labelToday.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelToday.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelToday.Location = new System.Drawing.Point(0, 0);
-            this.labelToday.Name = "labelToday";
-            this.labelToday.Size = new System.Drawing.Size(49, 13);
-            this.labelToday.TabIndex = 0;
-            this.labelToday.Text = "Сегодня";
-            // 
-            // panelLeftTask
-            // 
-            this.panelLeftTask.AutoSize = true;
-            this.panelLeftTask.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLeftTask.Location = new System.Drawing.Point(212, 59);
-            this.panelLeftTask.Name = "panelLeftTask";
-            this.panelLeftTask.Size = new System.Drawing.Size(612, 0);
-            this.panelLeftTask.TabIndex = 12;
-            this.panelLeftTask.Visible = false;
-            // 
-            // panelLeftLabel
-            // 
-            this.panelLeftLabel.AutoSize = true;
-            this.panelLeftLabel.Controls.Add(this.LabelLeft);
-            this.panelLeftLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLeftLabel.Location = new System.Drawing.Point(212, 46);
-            this.panelLeftLabel.Name = "panelLeftLabel";
-            this.panelLeftLabel.Size = new System.Drawing.Size(612, 13);
-            this.panelLeftLabel.TabIndex = 11;
-            this.panelLeftLabel.Visible = false;
-            // 
-            // LabelLeft
-            // 
-            this.LabelLeft.AutoSize = true;
-            this.LabelLeft.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LabelLeft.ForeColor = System.Drawing.SystemColors.Control;
-            this.LabelLeft.Location = new System.Drawing.Point(0, 0);
-            this.LabelLeft.Name = "LabelLeft";
-            this.LabelLeft.Size = new System.Drawing.Size(68, 13);
-            this.LabelLeft.TabIndex = 0;
-            this.LabelLeft.Text = "Просрочено";
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.AutoScroll = true;
-            this.MainPanel.AutoSize = true;
-            this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(212, 85);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(612, 512);
-            this.MainPanel.TabIndex = 16;
-            // 
-            // buttonFilter
-            // 
-            this.buttonFilter.Location = new System.Drawing.Point(531, 10);
-            this.buttonFilter.Name = "buttonFilter";
-            this.buttonFilter.Size = new System.Drawing.Size(75, 23);
-            this.buttonFilter.TabIndex = 5;
-            this.buttonFilter.Text = "фильтр";
-            this.buttonFilter.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Предстоящее";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1036, 597);
-            this.Controls.Add(this.MainPanel);
+            this.Controls.Add(this.panelFutureTask);
+            this.Controls.Add(this.panelLabelFuture);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panelToDay);
             this.Controls.Add(this.panelTodayLabel);
@@ -378,14 +365,12 @@ namespace todolist
             this.panel4.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panelFutureLabel.ResumeLayout(false);
-            this.panelFutureLabel.PerformLayout();
-            this.panelTodayLabel.ResumeLayout(false);
-            this.panelTodayLabel.PerformLayout();
             this.panelLeftLabel.ResumeLayout(false);
             this.panelLeftLabel.PerformLayout();
+            this.panelTodayLabel.ResumeLayout(false);
+            this.panelTodayLabel.PerformLayout();
+            this.panelLabelFuture.ResumeLayout(false);
+            this.panelLabelFuture.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,18 +392,17 @@ namespace todolist
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Button buttonFilter;
+        private System.Windows.Forms.Label LabelLeft;
+        private System.Windows.Forms.Panel panelLeftLabel;
+        private System.Windows.Forms.Panel panelLeftTask;
+        private System.Windows.Forms.Label labelToday;
+        private System.Windows.Forms.Panel panelTodayLabel;
+        private System.Windows.Forms.Panel panelToDay;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panelFutureTask;
-        private System.Windows.Forms.Panel panelFutureLabel;
-        private System.Windows.Forms.Label labelFutureTask;
-        private System.Windows.Forms.Panel panelToDay;
-        private System.Windows.Forms.Panel panelTodayLabel;
-        private System.Windows.Forms.Label labelToday;
-        private System.Windows.Forms.Panel panelLeftTask;
-        private System.Windows.Forms.Panel panelLeftLabel;
-        private System.Windows.Forms.Label LabelLeft;
-        private System.Windows.Forms.Panel MainPanel;
-        private System.Windows.Forms.Button buttonFilter;
+        private System.Windows.Forms.Panel panelLabelFuture;
+        private System.Windows.Forms.Label label1;
     }
 }
 

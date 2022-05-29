@@ -30,7 +30,6 @@ namespace todolist
         private void InitializeComponent()
         {
             this.taskText = new System.Windows.Forms.Label();
-            this.PriorityText = new System.Windows.Forms.Label();
             this.button_Done = new System.Windows.Forms.Button();
             this.button_del = new System.Windows.Forms.Button();
             this.labelDescription = new System.Windows.Forms.Label();
@@ -50,16 +49,6 @@ namespace todolist
             this.taskText.TabIndex = 0;
             this.taskText.Text = "text";
             // 
-            // PriorityText
-            // 
-            this.PriorityText.AutoSize = true;
-            this.PriorityText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.PriorityText.Location = new System.Drawing.Point(209, 19);
-            this.PriorityText.Name = "PriorityText";
-            this.PriorityText.Size = new System.Drawing.Size(38, 13);
-            this.PriorityText.TabIndex = 1;
-            this.PriorityText.Text = "Priority";
-            // 
             // button_Done
             // 
             this.button_Done.Location = new System.Drawing.Point(8, 14);
@@ -67,6 +56,7 @@ namespace todolist
             this.button_Done.Size = new System.Drawing.Size(21, 23);
             this.button_Done.TabIndex = 2;
             this.button_Done.UseVisualStyleBackColor = true;
+            this.button_Done.Click += new System.EventHandler(this.button_Done_Click);
             // 
             // button_del
             // 
@@ -119,7 +109,6 @@ namespace todolist
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.button_del);
             this.Controls.Add(this.button_Done);
-            this.Controls.Add(this.PriorityText);
             this.Controls.Add(this.taskText);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "TaskControl";
@@ -135,7 +124,6 @@ namespace todolist
         #endregion
 
         private System.Windows.Forms.Label taskText;
-        private System.Windows.Forms.Label PriorityText;
         private System.Windows.Forms.Button button_Done;
         private System.Windows.Forms.Button button_del;
         private System.Windows.Forms.Label labelDescription;

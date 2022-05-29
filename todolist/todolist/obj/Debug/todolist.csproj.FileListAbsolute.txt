@@ -29,5 +29,6 @@ C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todoli
 C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.exe
 C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.pdb
 C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.FormAddProject.resources
-C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.FormTaskShow.resources
 C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.FormMain.resources
+C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.FormFilter.resources
+C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.FormTaskEdit.resources

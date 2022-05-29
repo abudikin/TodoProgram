@@ -53,11 +53,6 @@ namespace todolist
             // comboBoxPriority
             // 
             this.comboBoxPriority.FormattingEnabled = true;
-            this.comboBoxPriority.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3"});
             this.comboBoxPriority.Location = new System.Drawing.Point(218, 179);
             this.comboBoxPriority.Name = "comboBoxPriority";
             this.comboBoxPriority.Size = new System.Drawing.Size(121, 21);
@@ -141,11 +136,6 @@ namespace todolist
             // comboBoxProject
             // 
             this.comboBoxProject.FormattingEnabled = true;
-            this.comboBoxProject.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3"});
             this.comboBoxProject.Location = new System.Drawing.Point(345, 179);
             this.comboBoxProject.Name = "comboBoxProject";
             this.comboBoxProject.Size = new System.Drawing.Size(121, 21);
@@ -156,7 +146,7 @@ namespace todolist
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(576, 231);
+            this.ClientSize = new System.Drawing.Size(576, 224);
             this.Controls.Add(this.labelProject);
             this.Controls.Add(this.comboBoxProject);
             this.Controls.Add(this.labelPriority);
