@@ -109,6 +109,7 @@ namespace todolist
             this.linkLabelRegistration.TabIndex = 6;
             this.linkLabelRegistration.TabStop = true;
             this.linkLabelRegistration.Text = "Зарегистрироваться";
+            this.linkLabelRegistration.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegistration_LinkClicked);
             // 
             // AuthForm
             // 

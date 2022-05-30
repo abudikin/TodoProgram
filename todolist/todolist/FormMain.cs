@@ -17,11 +17,13 @@ namespace todolist
         int project = 1;
         DateTime today = DateTime.Today;
         int status;
-        public FormMain()
+        int id;
+        public FormMain(int user_id)
         {
             InitializeComponent();
             getTasks();
             getProjects();
+            id = user_id;
         }
         
         public void getTasks()

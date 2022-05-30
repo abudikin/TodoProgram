@@ -38,7 +38,7 @@ namespace todolist
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_reg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelSurname
@@ -128,15 +128,16 @@ namespace todolist
             this.textBoxPassword.Size = new System.Drawing.Size(206, 25);
             this.textBoxPassword.TabIndex = 12;
             // 
-            // button1
+            // button_reg
             // 
-            this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(173, 251);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 27);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Зарегистрироваться";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_reg.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.button_reg.Location = new System.Drawing.Point(173, 251);
+            this.button_reg.Name = "button_reg";
+            this.button_reg.Size = new System.Drawing.Size(161, 27);
+            this.button_reg.TabIndex = 14;
+            this.button_reg.Text = "Зарегистрироваться";
+            this.button_reg.UseVisualStyleBackColor = true;
+            this.button_reg.Click += new System.EventHandler(this.button_reg_Click);
             // 
             // RegForm
             // 
@@ -144,7 +145,7 @@ namespace todolist
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(504, 302);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_reg);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.labelLogin);
@@ -174,6 +175,6 @@ namespace todolist
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_reg;
     }
 }

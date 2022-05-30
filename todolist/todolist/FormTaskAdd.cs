@@ -22,7 +22,7 @@ namespace todolist
 
         private void button_addTask_Click(object sender, EventArgs e)
         {
-            if (textBoxTask.Text =="" && comboBoxPriority.SelectedIndex==-1 && comboBoxProject.SelectedIndex==-1)
+            if (textBoxTask.Text.Length ==0 && comboBoxPriority.SelectedIndex==-1 && comboBoxProject.SelectedIndex==-1)
             {
                 MessageBox.Show("Заполните все поля");
             }
@@ -41,9 +41,7 @@ namespace todolist
                              "VALUES('" + task + "','" + date + "','" + description + "','" + status + "','" + priority + "','" + project_id + "');";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 MySqlCommand command = new MySqlCommand(sql, conn);
-                MySqlDataReader reader;
                 conn.Open();
-                reader = command.ExecuteReader();
                 MessageBox.Show("Добавлено");
                 conn.Close();
                 
