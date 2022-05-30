@@ -59,7 +59,7 @@ namespace todolist
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonAddProject);
             this.Name = "FormAddProject";
-            this.Text = "FormAddProject";
+            this.Text = "Добавление проектов";
             this.ResumeLayout(false);
             this.PerformLayout();
 

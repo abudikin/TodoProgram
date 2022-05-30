@@ -29,7 +29,19 @@ namespace todolist
         /// </summary>
         private void InitializeComponent()
         {
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(12, 35);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // FormFilter
             // 
@@ -37,12 +49,16 @@ namespace todolist
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(597, 217);
+            this.Controls.Add(this.radioButton1);
             this.Name = "FormFilter";
-            this.Text = "FormFilter";
+            this.Text = "Фильтр";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

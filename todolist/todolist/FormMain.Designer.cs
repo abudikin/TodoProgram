@@ -54,6 +54,7 @@ namespace todolist
             this.panelFutureTask = new System.Windows.Forms.Panel();
             this.panelLabelFuture = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonLeft = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -192,7 +193,6 @@ namespace todolist
             // 
             // panel7
             // 
-            this.panel7.AutoScroll = true;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.panel7.Controls.Add(this.buttonFilter);
             this.panel7.Controls.Add(this.buttonSearch);
@@ -244,6 +244,7 @@ namespace todolist
             // 
             // panelLeftLabel
             // 
+            this.panelLeftLabel.Controls.Add(this.buttonLeft);
             this.panelLeftLabel.Controls.Add(this.LabelLeft);
             this.panelLeftLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLeftLabel.Location = new System.Drawing.Point(212, 46);
@@ -337,6 +338,16 @@ namespace todolist
             this.label1.TabIndex = 0;
             this.label1.Text = "Предстоящее";
             // 
+            // buttonLeft
+            // 
+            this.buttonLeft.Location = new System.Drawing.Point(364, -3);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(75, 23);
+            this.buttonLeft.TabIndex = 1;
+            this.buttonLeft.Text = "Перенести";
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,7 +366,7 @@ namespace todolist
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "FormMain";
-            this.Text = "Form1";
+            this.Text = "Главная";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -403,6 +414,7 @@ namespace todolist
         private System.Windows.Forms.Panel panelFutureTask;
         private System.Windows.Forms.Panel panelLabelFuture;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonLeft;
     }
 }
 

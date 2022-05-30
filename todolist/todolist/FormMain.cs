@@ -11,11 +11,12 @@ using MySql.Data.MySqlClient;
 
 namespace todolist
 {
+    
     public partial class FormMain : Form
     {
         int project = 1;
         DateTime today = DateTime.Today;
-        
+        int status;
         public FormMain()
         {
             InitializeComponent();
@@ -288,6 +289,19 @@ namespace todolist
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             search();
+        }
+
+        private void buttonLeft_Click(object sender, EventArgs e)
+        {
+            string connStr = "server=localhost; port=3306; username=root; password=root; database=todo;";
+            string sql = "Update tasks set date='"+today.ToString("yyyy.MM.dd")+"' where date<'" + today.ToString("yyyy.MM.dd") + "' and status_id=1";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand command = new MySqlCommand(sql, conn);
+            MySqlDataReader reader;
+            conn.Open();
+            reader = command.ExecuteReader();
+            MessageBox.Show("Перенесено на сегодня");
+            conn.Close();
         }
     }
 }

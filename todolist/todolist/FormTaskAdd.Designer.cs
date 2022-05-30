@@ -160,7 +160,7 @@ namespace todolist
             this.Controls.Add(this.textBoxTask);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormTaskAdd";
-            this.Text = "FormTaskAdd";
+            this.Text = "Добавление задач";
             this.Load += new System.EventHandler(this.FormTaskAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

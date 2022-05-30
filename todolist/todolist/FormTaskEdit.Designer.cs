@@ -97,7 +97,7 @@ namespace todolist
             this.Controls.Add(this.comboBoxEditProject);
             this.Controls.Add(this.textBoxTaskEdit);
             this.Name = "FormTaskEdit";
-            this.Text = "FormTaskShow";
+            this.Text = "Редактирование задач";
             this.Load += new System.EventHandler(this.FormTaskShow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
