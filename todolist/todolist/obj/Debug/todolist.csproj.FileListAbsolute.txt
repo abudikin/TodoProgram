@@ -34,3 +34,4 @@ C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todoli
 C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.FormTaskEdit.resources
 C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.AuthForm.resources
 C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.RegForm.resources
+C:\Users\artbu\Desktop\учеба\TodoProgram\todolist\todolist\obj\Debug\todolist.FormEditProject.resources

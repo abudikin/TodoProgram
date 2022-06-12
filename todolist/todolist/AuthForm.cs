@@ -38,10 +38,7 @@ namespace todolist
                 {
                     if (table.Rows.Count > 0)
                     {
-                        MessageBox.Show("Успешно");
-                        FormMain formMain = new FormMain(user_id);
-                        this.Hide();
-                        formMain.Show();
+                        
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -49,6 +46,10 @@ namespace todolist
                                 user_id = Convert.ToInt32(reader[0]);
                             }
                         }
+                        MessageBox.Show("Успешно");
+                        FormMain formMain = new FormMain(user_id);
+                        this.Hide();
+                        formMain.Show();
                     }
                     else MessageBox.Show("Ошибка авторизации");
                     mySql.Close();

@@ -60,9 +60,10 @@ namespace todolist
             // 
             // button_del
             // 
+            this.button_del.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
             this.button_del.Location = new System.Drawing.Point(285, 14);
             this.button_del.Name = "button_del";
-            this.button_del.Size = new System.Drawing.Size(66, 22);
+            this.button_del.Size = new System.Drawing.Size(81, 30);
             this.button_del.TabIndex = 3;
             this.button_del.Text = "Удалить";
             this.button_del.UseVisualStyleBackColor = true;
@@ -71,30 +72,33 @@ namespace todolist
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
+            this.labelDescription.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
             this.labelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.labelDescription.Location = new System.Drawing.Point(5, 49);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelDescription.Size = new System.Drawing.Size(81, 19);
             this.labelDescription.TabIndex = 4;
             this.labelDescription.Text = "Deskription";
             // 
             // labelDay
             // 
             this.labelDay.AutoSize = true;
+            this.labelDay.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
             this.labelDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.labelDay.Location = new System.Drawing.Point(5, 81);
+            this.labelDay.Location = new System.Drawing.Point(5, 78);
             this.labelDay.Name = "labelDay";
-            this.labelDay.Size = new System.Drawing.Size(30, 13);
+            this.labelDay.Size = new System.Drawing.Size(38, 19);
             this.labelDay.TabIndex = 5;
             this.labelDay.Text = "Date";
             // 
             // labelProjectName
             // 
             this.labelProjectName.AutoSize = true;
+            this.labelProjectName.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
             this.labelProjectName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.labelProjectName.Location = new System.Drawing.Point(209, 81);
+            this.labelProjectName.Location = new System.Drawing.Point(281, 78);
             this.labelProjectName.Name = "labelProjectName";
-            this.labelProjectName.Size = new System.Drawing.Size(40, 13);
+            this.labelProjectName.Size = new System.Drawing.Size(53, 19);
             this.labelProjectName.TabIndex = 6;
             this.labelProjectName.Text = "Project";
             // 

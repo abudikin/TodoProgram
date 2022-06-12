@@ -36,7 +36,6 @@ namespace todolist
                 MySqlCommand command = new MySqlCommand("select * from projects where project_id='" + project + "'", mySql);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
-
                     while (reader.Read())
                     {
                         labelProjectName.Text = reader[1].ToString();
@@ -51,7 +50,6 @@ namespace todolist
                 MySqlCommand command = new MySqlCommand("select * from priority where priority_id='" + priority + "'", mySql);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
-
                     while (reader.Read())
                     {
                         Priority = Convert.ToInt32(reader[1]);
@@ -67,7 +65,6 @@ namespace todolist
                         {
                             button_Done.BackColor = Color.Yellow;
                         }
-                       
                     }
                     reader.Close();
                 }
@@ -77,7 +74,7 @@ namespace todolist
        
         private void TaskControl_MouseHover(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(30, 40, 40);
+            this.BackColor = Color.Gray;
         }
 
         private void TaskControl_MouseLeave(object sender, EventArgs e)

@@ -38,8 +38,6 @@ namespace todolist
                 MessageBox.Show("Добавлено");
                 conn.Close();
 
-
-
             }
         }
 

@@ -31,14 +31,17 @@ namespace todolist
         {
             string taskEdit = textBoxTaskEdit.Text;
             string deskriptionEdit = textBoxDesckiptionEdit.Text;
-            int priority = Convert.ToInt32(comboBoxEditPriority.SelectedItem);
-            int projectId = Convert.ToInt32(comboBoxEditProject.SelectedIndex);
+            int priority = Convert.ToInt32(comboBoxEditPriority.SelectedValue);
+            int projectId = Convert.ToInt32(comboBoxEditProject.SelectedValue);
 
             MySqlConnection mySql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=todo");
             using (mySql)
             {
                 mySql.Open();
-                MySqlCommand command = new MySqlCommand("update tasks set task_name='"+taskEdit+"',date='"+ dateTimePicker1.Value.Date.ToString("yyyy.MM.dd") + "',description='" + deskriptionEdit + "',priority_id='"+priority+ "',project_id='" + projectId + "' where task_id='" + index + "'", mySql);
+                MySqlCommand command = new MySqlCommand("update tasks set task_name='"+taskEdit+"',date='"
+                    + dateTimePicker1.Value.Date.ToString("yyyy.MM.dd") + 
+                    "',description='" + deskriptionEdit + "',priority_id='"+priority+ "',project_id='" 
+                    + projectId + "' where task_id='" + index + "'", mySql);
                 command.ExecuteNonQuery();
                MessageBox.Show("Изменено");
                 mySql.Close();
@@ -51,18 +54,18 @@ namespace todolist
             using (mySql)
             {
                 mySql.Open();
-                DataTable patientTable = new DataTable();
+                DataTable priorityTable = new DataTable();
                 MySqlCommand command = new MySqlCommand("select * from priority", mySql);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                adapter.Fill(patientTable);
+                adapter.Fill(priorityTable);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        comboBoxEditPriority.DataSource = patientTable;
+                        comboBoxEditPriority.DataSource = priorityTable;
                         comboBoxEditPriority.DisplayMember = "priority_name";
                         comboBoxEditPriority.ValueMember = "priority_id";
-                        comboBoxEditPriority.SelectedIndex = priority_id-1;
+                        comboBoxEditPriority.SelectedValue = priority_id;
 
                     }
                 }
@@ -82,7 +85,7 @@ namespace todolist
                         comboBoxEditProject.DataSource = patientTable;
                         comboBoxEditProject.DisplayMember = "project_name";
                         comboBoxEditProject.ValueMember = "project_id";
-                        comboBoxEditProject.SelectedIndex = project_id-1; 
+                        comboBoxEditProject.SelectedValue = project_id;
                     }
                 }
                 mySql.Close();

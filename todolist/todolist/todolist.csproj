@@ -55,6 +55,12 @@
     <Compile Include="AuthForm.Designer.cs">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditProject.Designer.cs">
+      <DependentUpon>FormEditProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFilter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditProject.resx">
+      <DependentUpon>FormEditProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFilter.resx">
       <DependentUpon>FormFilter.cs</DependentUpon>

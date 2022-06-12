@@ -30,6 +30,9 @@ namespace todolist
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonEditProject = new System.Windows.Forms.Button();
+            this.buttonDeleteProject = new System.Windows.Forms.Button();
+            this.labelProject = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button_addProject = new System.Windows.Forms.Button();
             this.listBox_projects = new System.Windows.Forms.ListBox();
@@ -41,11 +44,11 @@ namespace todolist
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.buttonFilter = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.LabelLeft = new System.Windows.Forms.Label();
             this.panelLeftLabel = new System.Windows.Forms.Panel();
+            this.buttonLeft = new System.Windows.Forms.Button();
             this.panelLeftTask = new System.Windows.Forms.Panel();
             this.labelToday = new System.Windows.Forms.Label();
             this.panelTodayLabel = new System.Windows.Forms.Panel();
@@ -54,7 +57,6 @@ namespace todolist
             this.panelFutureTask = new System.Windows.Forms.Panel();
             this.panelLabelFuture = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonLeft = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,6 +72,9 @@ namespace todolist
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.panel2.Controls.Add(this.buttonEditProject);
+            this.panel2.Controls.Add(this.buttonDeleteProject);
+            this.panel2.Controls.Add(this.labelProject);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.listBox_projects);
             this.panel2.Controls.Add(this.panel3);
@@ -79,11 +84,47 @@ namespace todolist
             this.panel2.Size = new System.Drawing.Size(212, 597);
             this.panel2.TabIndex = 0;
             // 
+            // buttonEditProject
+            // 
+            this.buttonEditProject.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonEditProject.Location = new System.Drawing.Point(109, 378);
+            this.buttonEditProject.Name = "buttonEditProject";
+            this.buttonEditProject.Size = new System.Drawing.Size(87, 28);
+            this.buttonEditProject.TabIndex = 21;
+            this.buttonEditProject.Text = "Изменить";
+            this.buttonEditProject.UseVisualStyleBackColor = true;
+            this.buttonEditProject.Visible = false;
+            this.buttonEditProject.Click += new System.EventHandler(this.buttonEditProject_Click);
+            // 
+            // buttonDeleteProject
+            // 
+            this.buttonDeleteProject.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonDeleteProject.Location = new System.Drawing.Point(12, 378);
+            this.buttonDeleteProject.Name = "buttonDeleteProject";
+            this.buttonDeleteProject.Size = new System.Drawing.Size(75, 28);
+            this.buttonDeleteProject.TabIndex = 4;
+            this.buttonDeleteProject.Text = "Удалить";
+            this.buttonDeleteProject.UseVisualStyleBackColor = true;
+            this.buttonDeleteProject.Visible = false;
+            this.buttonDeleteProject.Click += new System.EventHandler(this.buttonDeleteProject_Click);
+            // 
+            // labelProject
+            // 
+            this.labelProject.AutoSize = true;
+            this.labelProject.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.labelProject.ForeColor = System.Drawing.Color.White;
+            this.labelProject.Location = new System.Drawing.Point(68, 330);
+            this.labelProject.Name = "labelProject";
+            this.labelProject.Size = new System.Drawing.Size(50, 17);
+            this.labelProject.TabIndex = 20;
+            this.labelProject.Text = "Project";
+            this.labelProject.Visible = false;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.button_addProject);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 260);
+            this.panel6.Location = new System.Drawing.Point(0, 257);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(212, 34);
             this.panel6.TabIndex = 2;
@@ -93,6 +134,7 @@ namespace todolist
             this.button_addProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
             this.button_addProject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_addProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_addProject.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_addProject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.button_addProject.Location = new System.Drawing.Point(0, 0);
             this.button_addProject.Name = "button_addProject";
@@ -106,11 +148,13 @@ namespace todolist
             // 
             this.listBox_projects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.listBox_projects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listBox_projects.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.listBox_projects.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.listBox_projects.FormattingEnabled = true;
+            this.listBox_projects.ItemHeight = 17;
             this.listBox_projects.Location = new System.Drawing.Point(0, 100);
             this.listBox_projects.Name = "listBox_projects";
-            this.listBox_projects.Size = new System.Drawing.Size(212, 160);
+            this.listBox_projects.Size = new System.Drawing.Size(212, 157);
             this.listBox_projects.TabIndex = 0;
             this.listBox_projects.SelectedIndexChanged += new System.EventHandler(this.listBox_projects_SelectedIndexChanged);
             // 
@@ -126,9 +170,10 @@ namespace todolist
             // 
             // buttonBackToMain
             // 
+            this.buttonBackToMain.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonBackToMain.Location = new System.Drawing.Point(53, 38);
             this.buttonBackToMain.Name = "buttonBackToMain";
-            this.buttonBackToMain.Size = new System.Drawing.Size(75, 23);
+            this.buttonBackToMain.Size = new System.Drawing.Size(75, 28);
             this.buttonBackToMain.TabIndex = 3;
             this.buttonBackToMain.Text = "Назад";
             this.buttonBackToMain.UseVisualStyleBackColor = true;
@@ -139,10 +184,11 @@ namespace todolist
             // 
             this.button_refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
             this.button_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_refresh.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button_refresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.button_refresh.Location = new System.Drawing.Point(70, 38);
+            this.button_refresh.Location = new System.Drawing.Point(57, 38);
             this.button_refresh.Name = "button_refresh";
-            this.button_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_refresh.Size = new System.Drawing.Size(101, 30);
             this.button_refresh.TabIndex = 4;
             this.button_refresh.Text = "Обновить";
             this.button_refresh.UseVisualStyleBackColor = false;
@@ -152,10 +198,11 @@ namespace todolist
             // 
             this.button_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
             this.button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_add.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.button_add.Location = new System.Drawing.Point(57, 38);
             this.button_add.Name = "button_add";
-            this.button_add.Size = new System.Drawing.Size(101, 23);
+            this.button_add.Size = new System.Drawing.Size(101, 33);
             this.button_add.TabIndex = 0;
             this.button_add.Text = "Добавить";
             this.button_add.UseVisualStyleBackColor = false;
@@ -194,7 +241,6 @@ namespace todolist
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.panel7.Controls.Add(this.buttonFilter);
             this.panel7.Controls.Add(this.buttonSearch);
             this.panel7.Controls.Add(this.textBoxSearch);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -203,20 +249,12 @@ namespace todolist
             this.panel7.Size = new System.Drawing.Size(612, 46);
             this.panel7.TabIndex = 4;
             // 
-            // buttonFilter
-            // 
-            this.buttonFilter.Location = new System.Drawing.Point(531, 10);
-            this.buttonFilter.Name = "buttonFilter";
-            this.buttonFilter.Size = new System.Drawing.Size(75, 23);
-            this.buttonFilter.TabIndex = 5;
-            this.buttonFilter.Text = "фильтр";
-            this.buttonFilter.UseVisualStyleBackColor = true;
-            // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(364, 10);
+            this.buttonSearch.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonSearch.Location = new System.Drawing.Point(364, 7);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(75, 30);
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "поиск";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -224,9 +262,10 @@ namespace todolist
             // 
             // textBoxSearch
             // 
+            this.textBoxSearch.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.textBoxSearch.Location = new System.Drawing.Point(17, 12);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(274, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(274, 25);
             this.textBoxSearch.TabIndex = 0;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
@@ -252,6 +291,17 @@ namespace todolist
             this.panelLeftLabel.Size = new System.Drawing.Size(612, 25);
             this.panelLeftLabel.TabIndex = 11;
             this.panelLeftLabel.Visible = false;
+            // 
+            // buttonLeft
+            // 
+            this.buttonLeft.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonLeft.Location = new System.Drawing.Point(364, -3);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(93, 23);
+            this.buttonLeft.TabIndex = 1;
+            this.buttonLeft.Text = "Перенести";
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
             // 
             // panelLeftTask
             // 
@@ -338,16 +388,6 @@ namespace todolist
             this.label1.TabIndex = 0;
             this.label1.Text = "Предстоящее";
             // 
-            // buttonLeft
-            // 
-            this.buttonLeft.Location = new System.Drawing.Point(364, -3);
-            this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(75, 23);
-            this.buttonLeft.TabIndex = 1;
-            this.buttonLeft.Text = "Перенести";
-            this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +409,7 @@ namespace todolist
             this.Text = "Главная";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -403,7 +444,6 @@ namespace todolist
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.Button buttonFilter;
         private System.Windows.Forms.Label LabelLeft;
         private System.Windows.Forms.Panel panelLeftLabel;
         private System.Windows.Forms.Panel panelLeftTask;
@@ -415,6 +455,9 @@ namespace todolist
         private System.Windows.Forms.Panel panelLabelFuture;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonLeft;
+        private System.Windows.Forms.Button buttonEditProject;
+        private System.Windows.Forms.Button buttonDeleteProject;
+        private System.Windows.Forms.Label labelProject;
     }
 }
 

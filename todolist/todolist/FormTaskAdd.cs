@@ -14,10 +14,12 @@ namespace todolist
     public partial class FormTaskAdd : Form
     {
         int index;
-        public FormTaskAdd(int id)
+        int user_id;
+        public FormTaskAdd(int id,int user)
         {
             InitializeComponent();
             index = id;
+            user_id = user;
         }
 
         private void button_addTask_Click(object sender, EventArgs e)
@@ -28,25 +30,25 @@ namespace todolist
             }
             else
             {
-                
-
-                string date = dateTimePicker1.Value.Date.ToString("yyyy.MM.dd");
+                string date = dateTimePicker1.Value.ToString("yyyy.MM.dd");
                 string task = textBoxTask.Text;
                 string description = textBoxDescription.Text;
-                int priority = Convert.ToInt32(comboBoxPriority.SelectedIndex)+1;
+                int priority = Convert.ToInt32(comboBoxPriority.SelectedValue);
                 int status = 1;
-                int project_id = Convert.ToInt32(comboBoxProject.SelectedIndex)+1;
+                int project_id = Convert.ToInt32(comboBoxProject.SelectedValue);
                 string connStr = "server=localhost; port=3306; username=root; password=root; database=todo;";
                 string sql = "INSERT INTO tasks(task_name, date,description, status_id, priority_id,project_id) " +
-                             "VALUES('" + task + "','" + date + "','" + description + "','" + status + "','" + priority + "','" + project_id + "');";
+                             "VALUES('" + task + "','" + date + "','" + description + "','" + status + "','" + priority 
+                             + "','" + project_id + "');";
+                string sql2 = "INSERT INTO user_task(user_id,task_id)VALUES('"+user_id+"', (select last_insert_id()));";
                 MySqlConnection conn = new MySqlConnection(connStr);
-                MySqlCommand command = new MySqlCommand(sql, conn);
                 conn.Open();
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlCommand command2 = new MySqlCommand(sql2, conn);
+                command.ExecuteNonQuery();
+                command2.ExecuteNonQuery();
                 MessageBox.Show("Добавлено");
                 conn.Close();
-                
-
-
             }
         }
 
@@ -67,7 +69,7 @@ namespace todolist
                         comboBoxProject.DataSource = projectTable;
                         comboBoxProject.DisplayMember = "project_name";
                         comboBoxProject.ValueMember = "project_id";
-                        comboBoxProject.SelectedIndex = index-1;
+                        comboBoxProject.SelectedValue = index;
                     }
                 }
                 mySql.Close();
@@ -86,7 +88,7 @@ namespace todolist
                         comboBoxPriority.DataSource = priorityTable;
                         comboBoxPriority.DisplayMember = "priority_name";
                         comboBoxPriority.ValueMember = "priority_id";
-                        comboBoxPriority.Text = reader[1].ToString();
+                        comboBoxPriority.SelectedValue = Convert.ToInt32(reader[1]);
                     }
                 }
                 mySql.Close();

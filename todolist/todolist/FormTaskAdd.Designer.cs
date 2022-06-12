@@ -52,6 +52,7 @@ namespace todolist
             // 
             // comboBoxPriority
             // 
+            this.comboBoxPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPriority.FormattingEnabled = true;
             this.comboBoxPriority.Location = new System.Drawing.Point(218, 179);
             this.comboBoxPriority.Name = "comboBoxPriority";
@@ -135,6 +136,7 @@ namespace todolist
             // 
             // comboBoxProject
             // 
+            this.comboBoxProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProject.FormattingEnabled = true;
             this.comboBoxProject.Location = new System.Drawing.Point(345, 179);
             this.comboBoxProject.Name = "comboBoxProject";
